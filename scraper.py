@@ -85,7 +85,7 @@ def fetch_post_info(post_id):
         # Clean brand name from post title — strip suffixes like "Franchise Business Opportunity"
         raw_title = unescape(data.get("title", {}).get("rendered", ""))
         brand = re.sub(
-            r"\s*[-–—|:]\s*(franchise|business|opportunity|malaysia).*$",
+            r"\s*[-–—|:,]?\s*\b(franchise|business|opportunit(y|ies)|malaysia|in malaysia)\b.*$",
             "", raw_title, flags=re.IGNORECASE
         ).strip()
 
